@@ -11,8 +11,8 @@ def main():
     b = 20
     # กรณีขอบ: [low, high] pairs โดยที่ 0 <= low <= high <= 10^9
     limit_cases = [
-        [0, 0],                    # low=high=0 (กรณีต่ำสุด)
-        [0, 10**9],               # low=0, high=max (กรณีห่างที่สุด)
+        [1, 1],                    # low=high=0 (กรณีต่ำสุด)
+        [1, 10**9],               # low=0, high=max (กรณีห่างที่สุด)
         [10**9, 10**9]            # low=high=max (กรณีสูงสุด)
     ]
     
@@ -25,7 +25,7 @@ def main():
             low, high = limit_cases[i-1]
         else:
             while True:
-                low = random.randint(0, 10**9)
+                low = random.randint(1, 10**9)
                 high = random.randint(low, 10**9)  # high >= low
                 if (low, high) not in used_pairs:
                     break
