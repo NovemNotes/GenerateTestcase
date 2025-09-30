@@ -25,8 +25,8 @@ def main():
             n, m = limit_cases[i-1]
         else:
             while True:
-                n = random.randint(1, 10000)
-                m = random.randint(1, 10000)
+                n = random.randint(n_min, n_max)
+                m = random.randint(m_min, m_max)
                 if (n, m) not in used_pairs:
                     break
         
