@@ -8,12 +8,18 @@ def generate_random_file(filename, n, m):
 
 def main():
     a = 1
-    b = 20
+    b = 10
     
-    # กำหนดค่า limit cases สำหรับ (n, m)
+    # กำหนด min และ max สำหรับ n และ m
+    n_min, n_max = 0, 10000
+    m_min, m_max = 30, 8 * 10**4
+    
+    # limit cases ครบทั้ง 4 แบบ
     limit_cases = [
-        (1, 1),           # test case 1
-        (10**4, 10**4)    # test case 2
+        (n_min, m_min),    # test case 1: min n, min m (0, 30)
+        (n_min, m_max),    # test case 2: min n, max m (0, 80000)
+        (n_max, m_min),    # test case 3: max n, min m (10000, 30)
+        (n_max, m_max)     # test case 4: max n, max m (10000, 80000)
     ]
     
     used_pairs = set()
