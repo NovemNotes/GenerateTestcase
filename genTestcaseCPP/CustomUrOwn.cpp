@@ -57,7 +57,7 @@ vector<vector<int>> gen_matrix_number(const pii &limit,const int &n,const int &m
     }
     vector<vector<int>> ans;
     if(repeat){
-        unordered_multiset<int> ms;
+        multiset<int> ms;
         ms.insert(limit.first);
         ms.insert(limit.second);
         while(ms.size()!=n*m){
@@ -134,7 +134,7 @@ vector<vector<char>> gen_matrix_char(const pcc &limit,const int &n,const int &m,
     }
     vector<vector<char>> ans;
     if(repeat){
-        unordered_multiset<char> ms;
+        multiset<char> ms;
         ms.insert(limit.first);
         ms.insert(limit.second);
         while(ms.size()!=n*m){
@@ -195,7 +195,7 @@ vector<string> gen_vector_word(const int &n,const int &min_size,const int &max_s
     if(upper)limit2 = {'A','Z'};
     else limit2 = {'a','z'};
     if(repeat){
-        unordered_multiset<string> ms;
+        multiset<string> ms;
         while(ms.size() != n){
             ms.insert(gen_word(limit1,limit2,gen_number({min_size,max_size})));
         }
@@ -214,16 +214,14 @@ bool gen_boolean(){
     return gen_number({0,1});
 }
 
-vector<bool> gen_vector_boolean(const int &n){
-    vector<bool> ans;
+void gen_vector_boolean(const int &n,vector<bool> &ans){
     while(ans.size() != n){
         ans.emplace_back(gen_boolean());
     }
-    return ans;
+    return ;
 }
 
-vector<vector<bool>> gen_matrix_boolean(const int &n,const int &m){
-    vector<vector<bool>> ans;
+void gen_matrix_boolean(const int &n,const int &m,vector<vector<bool>> &ans){
     int cnt=0;
     vector<bool> tmp;
     for(int i=0;i<n*m;i++){
@@ -235,12 +233,20 @@ vector<vector<bool>> gen_matrix_boolean(const int &n,const int &m){
             tmp.clear();
         }
     }
-    return ans;
+    return ;
 }
 
-void solve(){
+string solve(){
     //edit your solution here;
+    string output = "";
+    return output;
+}
 
+pair<string,string> problem(){
+    //design your input testcase here!
+    string input = "";
+
+    return {input,solve()};
 }
 
 void save_testcase(const string &name,const string &input,const string &output){
@@ -251,7 +257,28 @@ void save_testcase(const string &name,const string &input,const string &output){
 int32_t main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);
     //it's up to you make you own!
+    int number_of_testcase = 10;
+
+    unordered_map<string,string> testcase;
+    while(testcase.size() != number_of_testcase){
+        pair<string,string> input = problem();
+        if(testcase.find(input.first)==testcase.end()){
+            testcase[input.first] = input.second;
+        }
+    }
+    int i=1;
+    for(auto &[input,output]:testcase){
+        save_testcase(to_string(i),input,output);
+        cout << "testcase : " << i << " " << "\n";
+        cout << "input : \n" << input << "\n";
+        cout << "output : \n" << output << "\n";
+        cout << "-------------------------\n";
+        i++;
+    }
     return 0;
-
 }
-
+/*
+3
+1 2 3
+RLLRLLL
+*/
