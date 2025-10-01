@@ -210,16 +210,47 @@ vector<string> gen_vector_word(const int &n,const int &min_size,const int &max_s
     return ans;
 }
 
+bool gen_boolean(){
+    return gen_number({0,1});
+}
+
+vector<bool> gen_vector_boolean(const int &n){
+    vector<bool> ans;
+    while(ans.size() != n){
+        ans.emplace_back(gen_boolean());
+    }
+    return ans;
+}
+
+vector<vector<bool>> gen_matrix_boolean(const int &n,const int &m){
+    vector<vector<bool>> ans;
+    int cnt=0;
+    vector<bool> tmp;
+    for(int i=0;i<n*m;i++){
+        tmp.emplace_back(gen_boolean());
+        cnt++;
+        if(cnt==m){
+            ans.emplace_back(tmp);
+            cnt=0;
+            tmp.clear();
+        }
+    }
+    return ans;
+}
+
 void solve(){
     //edit your solution here;
 
 }
 
+void gen_testcase(const string &name,const string &input,const string &output){
+    writeFile(name,input,".in");
+    writeFile(name,output,".sol");
+}
+
 int32_t main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);
     //it's up to you make you own!
-    vector<string> tmp = gen_vector_word(5,3,5,true,false,false);
-    for(auto &x:tmp)cout << x << "\n";
     return 0;
 
 }
