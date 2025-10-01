@@ -32,7 +32,9 @@ vector<int> gen(const pii limit,const int n){
 }
 
 int solve(int n){
-    
+    //edit your solution here;
+
+    return 0;
 }
 
 int32_t main(){
@@ -49,4 +51,5 @@ int32_t main(){
         writeFile(name,output,".sol");
     }
     return 0;
+
 }
