@@ -31,7 +31,7 @@ vector<int> gen(const pii limit,const int n){
     return v;
 }
 
-int solve(int n){
+int solve(int &n){
     //edit your solution here;
 
     return 0;
@@ -53,3 +53,4 @@ int32_t main(){
     return 0;
 
 }
+
