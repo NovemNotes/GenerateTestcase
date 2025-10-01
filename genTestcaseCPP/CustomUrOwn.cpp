@@ -243,7 +243,7 @@ void solve(){
 
 }
 
-void gen_testcase(const string &name,const string &input,const string &output){
+void save_testcase(const string &name,const string &input,const string &output){
     writeFile(name,input,".in");
     writeFile(name,output,".sol");
 }
@@ -254,3 +254,4 @@ int32_t main(){
     return 0;
 
 }
+
