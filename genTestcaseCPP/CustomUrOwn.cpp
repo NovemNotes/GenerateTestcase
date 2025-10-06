@@ -250,8 +250,10 @@ pair<string,string> problem(){
 }
 
 void save_testcase(const string &name,const string &input,const string &output){
-    writeFile(name,input,".in");
-    writeFile(name,output,".sol");
+    string tmp = "0"+name;
+    if(name.size()!=1)tmp=name;
+    writeFile(tmp,input,".in");
+    writeFile(tmp,output,".sol");
 }
 
 void gen_testcase(int number_of_testcase){
@@ -291,3 +293,4 @@ int32_t main(){
 RLLRLLL
 
 */
+
