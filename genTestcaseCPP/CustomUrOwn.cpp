@@ -5,6 +5,8 @@ using namespace std;
 #define pii pair<int,int>
 #define pcc pair<char,char>
 
+unordered_map<string,string> testcase;
+
 void writeFile(const string &name,const string &content,const string &surname){
     ofstream fout(name+surname);
     if(!fout)cout << "cannot write file " << name << " " << "." << surname << "\n";;
@@ -257,13 +259,15 @@ void save_testcase(const string &name,const string &input,const string &output){
 }
 
 void gen_testcase(int number_of_testcase){
-    unordered_map<string,string> testcase;
     while(testcase.size() != number_of_testcase){
         pair<string,string> input = problem();
         if(testcase.find(input.first)==testcase.end()){
             testcase[input.first] = input.second;
         }
-    }
+    }   
+}
+
+void show_all_testcase(){
     int i=1;
     for(auto &[input,output]:testcase){
         save_testcase(to_string(i),input,output);
@@ -275,6 +279,10 @@ void gen_testcase(int number_of_testcase){
     }
 }
 
+void add_manual_testcase(){
+
+}
+
 void sample_output(){
     pair<string,string>tmp = problem();
     cout << "input:\n" << tmp.first << "\noutput:\n" << tmp.second << "\n";
@@ -283,14 +291,8 @@ void sample_output(){
 int32_t main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);
     //it's up to you make you own!
-    sample_output();
-    gen_testcase(10);
+    // sample_output();
+    // gen_testcase(10);
+
     return 0;
 }
-/*
-3
-1 2 3
-RLLRLLL
-
-*/
-
