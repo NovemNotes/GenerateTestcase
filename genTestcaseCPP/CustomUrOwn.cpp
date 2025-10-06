@@ -254,11 +254,7 @@ void save_testcase(const string &name,const string &input,const string &output){
     writeFile(name,output,".sol");
 }
 
-int32_t main(){
-    ios_base::sync_with_stdio(false);cin.tie(NULL);
-    //it's up to you make you own!
-    int number_of_testcase = 10;
-
+void gen_testcase(int number_of_testcase){
     unordered_map<string,string> testcase;
     while(testcase.size() != number_of_testcase){
         pair<string,string> input = problem();
@@ -275,10 +271,23 @@ int32_t main(){
         cout << "-------------------------\n";
         i++;
     }
+}
+
+void sample_output(){
+    pair<string,string>tmp = problem();
+    cout << "input:\n" << tmp.first << "\noutput:\n" << tmp.second << "\n";
+}
+
+int32_t main(){
+    ios_base::sync_with_stdio(false);cin.tie(NULL);
+    //it's up to you make you own!
+    sample_output();
+    gen_testcase(10);
     return 0;
 }
 /*
 3
 1 2 3
 RLLRLLL
+
 */
